@@ -18,7 +18,12 @@ buildscript {
 }
 apply plugin: 'com.cdsap.talaiot'
 
+import com.cdsap.talaiot.metrics.GitBranchMetric
 talaiot {
+    metrics.default()
+    metrics.performance()
+    metrics.metrics.add(new GitBranchMetric())
+
     publishers {
         jsonPublisher = true
     }
