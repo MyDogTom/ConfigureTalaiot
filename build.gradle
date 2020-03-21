@@ -19,10 +19,14 @@ buildscript {
 apply plugin: 'com.cdsap.talaiot'
 
 import com.cdsap.talaiot.metrics.GitBranchMetric
+import com.github.mydogtom.talaiot.ProjectFolderMetric
+import com.github.mydogtom.talaiot.AndroidStudioMetric
 talaiot {
     metrics.default()
     metrics.performance()
     metrics.metrics.add(new GitBranchMetric())
+    metrics.metrics.add(new ProjectFolderMetric())
+    metrics.metrics.add(new AndroidStudioMetric())
 
     publishers {
         jsonPublisher = true
